@@ -13,7 +13,6 @@ namespace YourDay
         public MainPage()
         {
             InitializeComponent();
-            this.BindingContext = MStatic.RouteModel;
         }
     }
 }
