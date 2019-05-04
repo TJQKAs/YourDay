@@ -2,18 +2,21 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using YourDay.MClass;
+using YourDay.SubCl;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace YourDay
 {
     public partial class App : Application
     {
-       
+        
+        public static DisplayInfo DisplayInfo { get; set; }
         public App()
         {
             InitializeComponent();
-            MStatic.RouteModel = new AppClass.RouteVM();
-            MainPage = new MainPage();
+            //DisplayInfo = new DisplayInfo();
+            ////MStatic.RouteModel = new AppClass.RouteVM();
+            MainPage = new MainPage();        
         }
 
         protected override void OnStart()

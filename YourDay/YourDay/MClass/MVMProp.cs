@@ -54,7 +54,7 @@ namespace YourDay.MClass
         /// <summary>
         /// FirstString - Path to folder where the error files were stored
         /// </summary>
-        protected internal string FirstString
+        public string FirstString
         {
             get { return _first_string; }
             set

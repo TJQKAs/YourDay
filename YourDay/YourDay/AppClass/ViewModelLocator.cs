@@ -10,7 +10,6 @@ namespace YourDay.AppClass
         static ViewModelLocator()
         {
             IocInit.Initialize();
-
         }
 
         public RouteVM RouteVMProp
