@@ -10,7 +10,7 @@
         <Label Text="Welcome to Xamarin.Forms!" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
-        <Button Text="XXXX" Command="{Binding CloseCommand}"/>
+        <Button Text="XXXX" Command="{Binding CloseCommand}" BackgroundColor="Blue"/>
 
     </StackLayout>
 

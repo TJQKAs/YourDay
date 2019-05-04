@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -11,8 +12,54 @@ namespace YourDay.MClass
 {
   public partial class MVModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-       
+        public event PropertyChangedEventHandler PropertyChanged; 
+        private List<ToPerform> TaskList { get; set; }
+
+        public delegate void ToPerform();
+     
+
+        //public static Task PerfomTask(Task taskone, List<Task> tskl)
+        //{
+        //    try
+        //    {
+        //        tskl = tskl == null ? new List<Task>() : tskl;
+        //        if (tskl.Any()) { tskl.Add(taskone}
+
+
+
+        //        return null;
+
+        //    } catch(Exception ex)
+        //    {
+        //        return null;
+        //    }     
+        //}
+
+        public static Task PerformTask(ToPerform method, List<ToPerform> tskl)
+        {
+            try
+            {
+              return Task.Run(() => {
+
+                  tskl = tskl == null ? new List<ToPerform>() : tskl;
+                  if (tskl.Any()) { tskl.Add(method); }
+                  else
+                  {
+                      tskl.Add(method);
+                      while (tskl.Any())
+                      {
+                          tskl.FirstOrDefault()?.Invoke();
+                          tskl.Remove(tskl.FirstOrDefault());
+                      }
+                  }
+                });
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
 
         public MVModel()
         {
